@@ -31,7 +31,10 @@ app.use(express.json()) //it make api take data from post as json
 const coursesRouter = require('./routes/courses.routes');
 const usersRouter = require('./routes/users.routes');
 
-
+// Serve HTML text for root URL ('/')
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 app.use('/api/courses', coursesRouter)
 app.use('/api/users', usersRouter)
 
